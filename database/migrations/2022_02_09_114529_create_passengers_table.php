@@ -16,6 +16,9 @@ class CreatePassengersTable extends Migration
         Schema::create('passengers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('paymentStatus');
         });
     }
 

@@ -13,6 +13,6 @@ class SeatSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Seat::factory(20)->create();
     }
 }

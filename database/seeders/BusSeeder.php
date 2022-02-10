@@ -13,6 +13,6 @@ class BusSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Bus::factory(4)->create();
     }
 }

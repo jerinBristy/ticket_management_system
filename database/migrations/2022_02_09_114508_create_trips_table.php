@@ -16,6 +16,10 @@ class CreateTripsTable extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('bus_id')->constrained()->cascadeOnDelete();
+            $table->time('startTime');
+            $table->time('endTime');
+            $table->string('route');
         });
     }
 

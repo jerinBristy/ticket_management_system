@@ -14,7 +14,10 @@ class BusFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'plateNo' => $this->faker->numberBetween(1000,9999),
+            'type' => $this->faker->userName,
+            'driverName' => $this->faker->name,
+            'assistantName' => $this->faker->name
         ];
     }
 }

@@ -14,7 +14,8 @@ class SeatTypeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'type' => 'regular',
+            'price' => '250'
         ];
     }
 }

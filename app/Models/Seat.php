@@ -4,8 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\SeatType;
+use App\Models\Bus;
+use App\Models\Passenger;
 
 class Seat extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function bus()
+    {
+        $this->belongsTo(Bus::class);
+    }
+
+    public function seat_types()
+    {
+        $this->belongsTo(SeatType::class);
+    }
+
+    public function passengers()
+    {
+        $this->belongsToMany(Passenger::class);
+    }
 }

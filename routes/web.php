@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\BusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'index']);
+
+Route::get('login',[SessionsController::class,'create'])->middleware('guest');;
+Route::post('login',[SessionsController::class,'store'])->middleware('guest');;
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
+Route::get('register',[RegisterController::class, 'create'])->middleware('guest');
+Route::post('register',[RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('bus', [BusController::class, 'index']);
+
+
+
