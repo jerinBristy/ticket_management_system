@@ -1,6 +1,6 @@
 
 <x-layout>
-    @include('components.buses._header')
+    @include('buses._header')
     <div class="header">
         @auth
             <h1>Welcome {{ auth()->user()->username }}</h1>
