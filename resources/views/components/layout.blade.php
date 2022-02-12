@@ -22,7 +22,7 @@
         @endguest
         <a href="/" class="item">Add Transport</a>
         <a href="/bus" class="item">Transports</a>
-        <a href="" class="item">Trips</a>
+        <a href="/trip" class="item">Trips</a>
     </nav>
 
     {{$slot}}

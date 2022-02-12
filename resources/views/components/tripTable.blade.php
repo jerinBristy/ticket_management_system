@@ -1,5 +1,5 @@
 @props(['trips'])
-<table id="trip">
+<table id="bus">
 
     <tr>
         <th>Bus No</th>

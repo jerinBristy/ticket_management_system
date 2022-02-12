@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\TripController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,5 @@ Route::post('register',[RegisterController::class, 'store'])->middleware('guest'
 
 Route::get('bus', [BusController::class, 'index']);
 
-
+Route::get('trip', [TripController::class,'index']);
 
