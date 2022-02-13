@@ -21,11 +21,11 @@ class Seat extends Model
 
     public function seat_types()
     {
-        $this->belongsTo(SeatType::class);
+        return $this->belongsTo(SeatType::class);
     }
 
     public function passengers()
     {
-        $this->belongsToMany(Passenger::class);
+        return $this->belongsToMany(Passenger::class);
     }
 }

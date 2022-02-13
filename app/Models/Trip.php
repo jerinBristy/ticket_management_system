@@ -12,8 +12,8 @@ class Trip extends Model
 
     protected $guarded =[];
 
-    public function buses()
+    public function bus()
     {
-        $this->belongsTo(Bus::class);
+        return $this->belongsTo(Bus::class, 'bus_id');
     }
 }

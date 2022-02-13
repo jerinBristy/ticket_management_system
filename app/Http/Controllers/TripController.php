@@ -10,7 +10,8 @@ class tripController extends Controller
     public function index()
     {
         return view ('trips.list',[
-            'trips' => Trip::all()
+//           for one to many relationship between bus and trip
+            'trips' => Trip::with(array('bus'))->get(),
         ]);
     }
 }

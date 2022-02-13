@@ -9,7 +9,7 @@
     </tr>
     @foreach($trips as $trip)
         <tr>
-            <td>{{$trip->bus_id}}</td>
+            <td>{{$trip->bus->plateNo}}</td>
             <td>{{$trip->startTime}}</td>
             <td>{{$trip->endTime}}</td>
             <td>{{$trip->route}}</td>

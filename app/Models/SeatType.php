@@ -14,6 +14,6 @@ class SeatType extends Model
 
     public function seats()
     {
-        $this->hasMany(Seat::class);
+        return $this->hasMany(Seat::class);
     }
 }
