@@ -28,6 +28,8 @@ Route::get('register',[RegisterController::class, 'create'])->middleware('guest'
 Route::post('register',[RegisterController::class, 'store'])->middleware('guest');
 
 Route::get('bus', [BusController::class, 'index']);
+Route::get('bus/create', [BusController::class,'create']);
+Route::post('bus/create', [BusController::class,'store']);
 
 Route::get('trip', [TripController::class,'index']);
 

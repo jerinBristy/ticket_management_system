@@ -19,7 +19,7 @@ class SeatFactory extends Factory
         return [
             'bus_id' => Bus::factory(),
             'seat_type_id' => SeatType::factory(),
-
+            'seat_status' => "available"
         ];
     }
 }

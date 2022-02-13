@@ -17,6 +17,7 @@ class CreateSeatsTable extends Migration
             $table->id();
             $table->foreignId('bus_id')->constrained()->cascadeOnDelete();
             $table->foreignId('seat_type_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('seat_status');
             $table->timestamps();
         });
     }
