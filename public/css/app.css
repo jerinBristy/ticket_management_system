@@ -141,6 +141,25 @@
         background-color: #dcab0c;
         color: #151414;
     }
+    .greenbtn{
+        background-color: #3ac03a;
+        border-radius: 25px;
+    }
+    .bluebtn{
+        background-color: #0c5bf3;
+    }
+    .redbtn{
+        background-color: #e54618;
+    }
+    .greenbtn, .bluebtn,.redbtn{
+        border: none;
+        padding: 5px;
+        color: #151414;
+        font-size: small;
+    }
+    .greenbtn:hover, .bluebtn:hover,.redbtn:hover{
+        cursor: pointer;
+    }
 
 }
 
