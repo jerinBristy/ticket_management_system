@@ -12,6 +12,14 @@
             <input type="text" placeholder="Enter bus type" name="type" value="{{old('type')}}">
             <x-form.error name="type"/>
 
+            <label for="routeName"><b>Bus Route</b></label>
+            <input type="text" placeholder="Enter bus route" name="routeName" value="{{old('routeName')}}">
+            <x-form.error name="routeName"/>
+
+            <label for="startTime"><b>Start Date & Time</b></label>
+            <input type="datetime-local" placeholder="Enter Start DateTime" name="startTime" value="{{old('startTime')}}">
+            <x-form.error name="startTime"/>
+
             <label for="driverName"><b>Driver Name</b></label>
             <input type="text" placeholder="Enter Driver Name" name="driverName" value="{{old('driverName')}}">
             <x-form.error name="driverName"/>

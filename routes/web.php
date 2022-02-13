@@ -30,6 +30,7 @@ Route::post('register',[RegisterController::class, 'store'])->middleware('guest'
 Route::get('bus', [BusController::class, 'index']);
 Route::get('bus/create', [BusController::class,'create']);
 Route::post('bus/create', [BusController::class,'store']);
+Route::get('bus/edit/{id}',[BusController::class,'update']);
 
 Route::get('trip', [TripController::class,'index']);
 

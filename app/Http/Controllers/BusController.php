@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Route;
 use Illuminate\Http\Request;
 use App\Models\Bus;
 
@@ -33,17 +34,27 @@ class BusController extends Controller
 
     public function store()
     {
-        $attributes = \request()->validate([
+        $busAttributes = \request()->validate([
             'plateNo'=> 'required|min:4|max:4|unique:buses,plateNo',
             'type'=> 'required',
             'driverName' => 'required',
             'assistantName'=> 'required',
         ]);
 
-        Bus::create($attributes);
+        $routeAttributes = \request()->validate([
+            'routeName' =>'required',
+            'startTime' => 'required',
+        ]);
+
+        $buses = Bus::create($busAttributes)->get();
+
+        $route = Route::create($routeAttributes);
 
         return redirect('/bus')->with('message', 'successfully added a new Transport');
     }
 
-
+    public function update()
+    {
+        return view('buses.update');
+    }
 }
