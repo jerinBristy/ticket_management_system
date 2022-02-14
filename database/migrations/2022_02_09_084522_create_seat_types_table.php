@@ -17,7 +17,6 @@ class CreateSeatTypesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('type');
-            $table->string('price');
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\SeatType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RouteFactory extends Factory
@@ -14,8 +15,10 @@ class RouteFactory extends Factory
     public function definition()
     {
         return [
+            'seat_type_id' => 1,
             'routeName' => $this->faker->streetName(),
-            'startTime' => $this->faker->dateTime
+            'startTime' => $this->faker->dateTime,
+            'price' => 250
         ];
     }
 }

@@ -17,10 +17,9 @@
             <td>{{$bus->driverName}}</td>
             <td>{{$bus->assistantName}}</td>
             <td>
-                {{ $bus->seats()->select('*')
-                ->where('seat_status','=','available')
-                ->get()
-                ->count()}}
+{{--                {{ $bus->seats()->select('*')--}}
+{{--                ->where('seat_status','=','available')--}}
+{{--                ->count()}}--}}
             </td>
             <td>
                 <a href="/book" class="greenbtn">Book</a>

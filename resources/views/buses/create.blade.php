@@ -8,9 +8,17 @@
             <input type="text" placeholder="Enter PlateNo" name="plateNo" value="{{old('plateNo')}}">
             <x-form.error name="plateNo"/>
 
-            <label for="type"><b>Bus TYpe</b></label>
+            <label for="type"><b>Bus Type</b></label>
             <input type="text" placeholder="Enter bus type" name="type" value="{{old('type')}}">
             <x-form.error name="type"/>
+
+            <label for="regularSeat"><b>Regular Seats</b></label>
+            <input type="number" placeholder="" name="regularSeat" value="{{old('regularSeat')}}">
+            <x-form.error name="regularSeat"/>
+
+            <label for="premiumSeat"><b>Premium Seats</b></label>
+            <input type="number" placeholder="" name="premiumSeat" value="{{old('premiumSeat')}}">
+            <x-form.error name="premiumSeat"/>
 
             <label for="routeName"><b>Bus Route</b></label>
             <input type="text" placeholder="Enter bus route" name="routeName" value="{{old('routeName')}}">

@@ -17,9 +17,7 @@ class CreateTripsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('bus_id')->constrained()->cascadeOnDelete();
-            $table->time('startTime');
-            $table->time('endTime');
-            $table->string('route');
+            $table->foreignId('route_id')->constrained()->cascadeOnDelete();
         });
     }
 

@@ -15,10 +15,8 @@ class TripFactory extends Factory
     public function definition()
     {
         return [
-            'bus_id' => Bus::factory(),
-            'startTime' => $this->faker->time,
-            'endTime' => $this->faker->time,
-            'route' => $this->faker->text(100),
+            'bus_id' => random_int(1,4),
+            'route_id' => random_int(1,2)
         ];
     }
 }

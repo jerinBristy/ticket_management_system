@@ -16,4 +16,9 @@ class SeatType extends Model
     {
         return $this->hasMany(Seat::class);
     }
+
+    public function routes()
+    {
+        return $this->hasMany(Route::class);
+    }
 }

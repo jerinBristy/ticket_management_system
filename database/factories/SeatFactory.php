@@ -17,9 +17,8 @@ class SeatFactory extends Factory
     public function definition()
     {
         return [
-            'bus_id' => Bus::factory(),
-            'seat_type_id' => SeatType::factory(),
-            'seat_status' => "available"
+            'bus_id' => random_int(1,4),
+            'seat_type_id' => '1',
         ];
     }
 }

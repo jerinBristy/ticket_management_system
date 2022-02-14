@@ -19,11 +19,7 @@ class BusController extends Controller
 //            dd($seats);
 //        }
         return view('buses.index',[
-            'buses' => Bus::with(array('seats'))->get(),
-//            'seats' => Bus::with(array('seats'))->select('*')
-//                ->groupBy('bus_id')->having("seat_status='available'")
-//                ->get()
-//                ->toArray(),
+            'buses' => Bus::with('seats')->get(),
          ]);
     }
 
@@ -45,6 +41,12 @@ class BusController extends Controller
             'routeName' =>'required',
             'startTime' => 'required',
         ]);
+
+        if (\request()->get('regularSeat')){
+            $seatAttributes = \request()->validate([
+                'seatType' => 'required'
+            ]);
+         }
 
         $buses = Bus::create($busAttributes)->get();
 

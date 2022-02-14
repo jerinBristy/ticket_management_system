@@ -15,7 +15,6 @@ class SeatTypeFactory extends Factory
     {
         return [
             'type' => 'regular',
-            'price' => '250'
         ];
     }
 }
