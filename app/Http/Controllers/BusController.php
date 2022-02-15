@@ -51,6 +51,12 @@ class BusController extends Controller
         return view('buses.update');
     }
 
+    public function destroy(Bus $bus)
+    {
+        $bus->delete();
+        return back()->with('message' , 'Successfully Deleted');
+    }
+
     public function createSeatandRoute(string $seatType,int $seat_type_id,int $price,int $bus_id){
         $routeAttributes = \request()->validate([
             'from' =>'required',

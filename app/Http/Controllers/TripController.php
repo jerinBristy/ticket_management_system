@@ -37,4 +37,5 @@ class tripController extends Controller
 
         return back()->with('message', 'successfully added a new Trip');
     }
+
 }

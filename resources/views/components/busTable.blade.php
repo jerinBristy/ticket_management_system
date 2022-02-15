@@ -24,7 +24,13 @@
             <td>
                 <a href="/trip/create/{{$bus->id}}" class="greenbtn">Add Trips</a>
                 <a href="/bus/edit/{id}" class="bluebtn">Edit</a>
-                <a href="/bus/{id}" class="redbtn">Delete</a>
+
+                    <form method="POST" action="/bus/{{$bus->id}}}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="redbtn">Delete</button>
+                    </form>
+
             </td>
         </tr>
     @endforeach
