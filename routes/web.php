@@ -35,5 +35,5 @@ Route::delete('bus/{bus}', [BusController::class, 'destroy']);
 
 Route::get('trip', [TripController::class,'index']);
 Route::get('trip/create/{bus}',[TripController::class, 'create']);
-Route::post('trip/create/{bus}',[TripController::class, 'store']);
+Route::post('trip/create/{bus}{driver}',[TripController::class, 'store']);
 

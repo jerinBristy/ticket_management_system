@@ -15,6 +15,13 @@
             <input type="datetime-local" placeholder="Enter Start DateTime" name="startTime" value="{{old('startTime')}}">
             <x-form.error name="startTime"/>
 
+            <label for="driver"><b>Driver Name</b></label>
+            <select name="driver" id="driver">
+                <option value="">Select a Driver</option>
+                @foreach($drivers as $driver)
+                    <option value="{{$driver->name}}">{{$driver->name}}</option>
+                @endforeach
+            </select>
             <button class="btn" type="submit">Add Trips</button>
         </form>
 

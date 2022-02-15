@@ -6,6 +6,7 @@ use App\Models\Route;
 use Illuminate\Http\Request;
 use App\Models\Trip;
 use App\Models\Bus;
+use App\Models\Driver;
 
 class tripController extends Controller
 {
@@ -13,13 +14,14 @@ class tripController extends Controller
     {
         return view ('trips.list',[
 //           for one to many relationship between bus and trip
-            'trips' => Trip::with(array('bus'))->get(),
+            'trips' => Trip::with(array('bus','route','driver'))->get(),
         ]);
     }
 
     public function create(Bus $bus)
     {
-        return view('trips.create',['bus' => $bus]);
+        $drivers= Driver::all();
+        return view('trips.create',['bus' => $bus, 'drivers' => $drivers]);
     }
 
     public function store(Bus $bus)
@@ -29,10 +31,12 @@ class tripController extends Controller
             'to' => 'required',
             'startTime' => 'required'
         ]);
+        $driver = Driver::where('name','=',\request('driver'))->first();
         $route=Route::create($attributes);
         Trip::create([
             'bus_id' => $bus->id,
-            'route_id' => $route->id
+            'route_id' => $route->id,
+            'driver_id' => $driver->id,
         ]);
 
         return back()->with('message', 'successfully added a new Trip');
