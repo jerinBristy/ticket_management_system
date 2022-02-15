@@ -33,4 +33,6 @@ Route::post('bus/create', [BusController::class,'store']);
 Route::get('bus/edit/{id}',[BusController::class,'update']);
 
 Route::get('trip', [TripController::class,'index']);
+Route::get('trip/create/{bus}',[TripController::class, 'create']);
+Route::post('trip/create/{bus}',[TripController::class, 'store']);
 

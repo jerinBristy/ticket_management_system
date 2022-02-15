@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Route;
 use Illuminate\Http\Request;
 use App\Models\Bus;
+use App\Models\Seat;
 
 class BusController extends Controller
 {
@@ -37,20 +38,10 @@ class BusController extends Controller
             'assistantName'=> 'required',
         ]);
 
-        $routeAttributes = \request()->validate([
-            'routeName' =>'required',
-            'startTime' => 'required',
-        ]);
+        $buses = Bus::create($busAttributes);
 
-        if (\request()->get('regularSeat')){
-            $seatAttributes = \request()->validate([
-                'seatType' => 'required'
-            ]);
-         }
-
-        $buses = Bus::create($busAttributes)->get();
-
-        $route = Route::create($routeAttributes);
+//        $this->createSeatandRoute('regularSeat',1,250,$buses->id);
+//        $this->createSeatandRoute('premiumSeat',2,500,$buses->id);
 
         return redirect('/bus')->with('message', 'successfully added a new Transport');
     }
@@ -58,5 +49,31 @@ class BusController extends Controller
     public function update()
     {
         return view('buses.update');
+    }
+
+    public function createSeatandRoute(string $seatType,int $seat_type_id,int $price,int $bus_id){
+        $routeAttributes = \request()->validate([
+            'from' =>'required',
+            'to' => 'required',
+            'startTime' => 'required',
+        ]);
+        if (\request()->get($seatType)){
+            $seatAttributes = \request()->validate([
+                $seatType => 'required'
+            ]);
+            $counter= int()(\request()->get($seatType));
+            while($counter!=0){
+                Seat::create([
+                    'bus_id' => $bus_id,
+                    'seat_type_id' => $seat_type_id
+                ]);
+                Route::create(array_merge(
+                    ['seat_type_id' => $seat_type_id],
+                    ['price' => $price],
+                    $routeAttributes
+                ));
+                $counter--;
+            };
+        }
     }
 }

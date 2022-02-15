@@ -22,7 +22,7 @@
 {{--                ->count()}}--}}
             </td>
             <td>
-                <a href="/book" class="greenbtn">Book</a>
+                <a href="/trip/create/{{$bus->id}}" class="greenbtn">Add Trips</a>
                 <a href="/bus/edit/{id}" class="bluebtn">Edit</a>
                 <a href="/bus/{id}" class="redbtn">Delete</a>
             </td>

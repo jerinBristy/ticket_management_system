@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Bus;
+use App\Models\Bus;
 
 class Route extends Model
 {
     use HasFactory;
     protected  $guarded=[];
 
-    public function buses()
+    public function bus()
     {
         return $this->belongsToMany(Bus::class);
     }
@@ -23,6 +23,6 @@ class Route extends Model
 
     public function seatType()
     {
-        return $this->belongsTo(SeatType::class);
+        return $this->belongsTomany(SeatType::class);
     }
 }

@@ -15,11 +15,10 @@ class CreateRoutesTable extends Migration
     {
         Schema::create('routes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('seat_type_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
-            $table->string('routeName');
+            $table->string('from');
+            $table->string('to');
             $table->dateTime('startTime');
-            $table->integer('price');
         });
     }
 

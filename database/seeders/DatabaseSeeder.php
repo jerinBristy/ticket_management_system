@@ -16,16 +16,14 @@ class DatabaseSeeder extends Seeder
          \App\Models\User::factory(1)->create();
         \App\Models\Bus::factory(4)->create();
         DB::table('seat_types')->insert([
-                'type' => 'regular',
+                ['type' => 'regular'],
+                ['type' => 'premium']
             ]
         );
         \App\Models\Seat::factory(24)->create();
         \App\Models\Route::factory(2)->create();
         \App\Models\Trip::factory(5)->create();
         \App\Models\Passenger::factory(4)->create();
-
-
-
 
     }
 }

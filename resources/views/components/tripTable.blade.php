@@ -3,16 +3,18 @@
 
     <tr>
         <th>Bus No</th>
+        <th>Bus Type</th>
         <th>Start Time</th>
-        <th>End Time</th>
-        <th>Route</th>
+        <th>From</th>
+        <th>To</th>
     </tr>
     @foreach($trips as $trip)
         <tr>
             <td>{{$trip->bus->plateNo}}</td>
-            <td>{{$trip->startTime}}</td>
-            <td>{{$trip->endTime}}</td>
-            <td>{{$trip->route}}</td>
+            <td>{{$trip->bus->type}}</td>
+            <td>{{$trip->route->startTime}}</td>
+            <td>{{$trip->route->from}}</td>
+            <td>{{$trip->route->to}}</td>
 
         </tr>
     @endforeach

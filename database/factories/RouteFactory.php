@@ -15,10 +15,9 @@ class RouteFactory extends Factory
     public function definition()
     {
         return [
-            'seat_type_id' => 1,
-            'routeName' => $this->faker->streetName(),
+            'from' => $this->faker->streetSuffix,
+            'to' => $this->faker->streetSuffix,
             'startTime' => $this->faker->dateTime,
-            'price' => 250
         ];
     }
 }
