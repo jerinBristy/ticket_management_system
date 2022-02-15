@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Bus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TripFactory extends Factory
+class DriverFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,9 +14,8 @@ class TripFactory extends Factory
     public function definition()
     {
         return [
-            'bus_id' => random_int(1,4),
-            'route_id' => random_int(1,2),
-            'driver_id' => random_int(1,7)
+            'name' => $this->faker->name,
+            'assistantName' => $this->faker->name
         ];
     }
 }
