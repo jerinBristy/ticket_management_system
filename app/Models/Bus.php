@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Trip;
 use App\Models\Seat;
 use App\Models\Route;
+use App\Models\SeatLayout;
 
 class Bus extends Model
 {
@@ -26,5 +27,10 @@ class Bus extends Model
     public function routes()
     {
         return $this->belongsToMany(Route::class);
+    }
+
+    public function seatLayout()
+    {
+        return $this->belongsTo(SeatLayout::class);
     }
 }

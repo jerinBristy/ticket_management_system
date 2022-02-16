@@ -25,7 +25,18 @@ class DatabaseSeeder extends Seeder
         \App\Models\Driver::factory(7)->create();
         \App\Models\Trip::factory(5)->create();
         \App\Models\Passenger::factory(4)->create();
-
+        DB::table('seat_layouts')->insert([
+            [
+                'design' => '/images/layout1.png',
+                'premiumSeat' =>'6',
+                'regularSeat' => '24'
+            ],
+            [
+                'design' => '/images/layout2.png',
+                'premiumSeat' =>'0',
+                'regularSeat' => '32'
+            ]
+        ]);
 
     }
 }

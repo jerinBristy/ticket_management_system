@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Route;
+use App\Models\SeatLayout;
 use Illuminate\Http\Request;
 use App\Models\Bus;
 use App\Models\Seat;
@@ -44,6 +45,12 @@ class BusController extends Controller
 //        $this->createSeatandRoute('premiumSeat',2,500,$buses->id);
 
         return redirect('/bus')->with('message', 'successfully added a new Transport');
+    }
+
+    public function show(Bus $bus)
+    {
+        $seatlayouts=SeatLayout::all();
+        return view('buses.show', ['bus' =>$bus, 'seatlayouts' => $seatlayouts]);
     }
 
     public function update()

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\SeatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,10 @@ Route::get('bus', [BusController::class, 'index']);
 Route::get('bus/create', [BusController::class,'create']);
 Route::post('bus/create', [BusController::class,'store']);
 Route::get('bus/details/{bus}',[BusController::class,'update']);
+Route::get('bus/show/{bus}',[BusController::class,'show']);
 Route::delete('bus/{bus}', [BusController::class, 'destroy']);
+
+Route::get('seat/create/{bus}',[SeatController::class, 'create']);
 
 Route::get('trip', [TripController::class,'index']);
 Route::get('trip/create/{bus}',[TripController::class, 'create']);

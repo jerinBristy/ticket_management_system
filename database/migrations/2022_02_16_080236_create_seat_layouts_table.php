@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBusesTable extends Migration
+class CreateSeatLayoutsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateBusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('buses', function (Blueprint $table) {
+        Schema::create('seat_layouts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('seatLayout_id')->nullable();
             $table->timestamps();
-            $table->string('plateNo')->unique();
-            $table->string('type');
+            $table->string('design');
+            $table->string('premiumSeat');
+            $table->string('regularSeat');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateBusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buses');
+        Schema::dropIfExists('seat_layouts');
     }
 }
