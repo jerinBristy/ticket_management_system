@@ -40,5 +40,10 @@ Route::get('seat/create/{bus}',[SeatController::class, 'create']);
 
 Route::get('trip', [TripController::class,'index']);
 Route::get('trip/create/{bus}',[TripController::class, 'create']);
+Route::get('trip/show/{trip}',[TripController::class, 'show']);
 Route::post('trip/create/{bus}{driver}',[TripController::class, 'store']);
+Route::get('trip/{trip}/edit',[TripController::class,'edit']);
+Route::patch('trip/{trip}',[TripController::class,'update']);
+Route::delete('trip/{trip}', [TripController::class, 'destroy']);
+
 
