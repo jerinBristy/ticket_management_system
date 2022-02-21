@@ -7,6 +7,7 @@ use App\Models\SeatLayout;
 use Illuminate\Http\Request;
 use App\Models\Bus;
 use App\Models\Seat;
+use Illuminate\Validation\Rule;
 
 class BusController extends Controller
 {
@@ -32,12 +33,7 @@ class BusController extends Controller
 
     public function store()
     {
-        $busAttributes = \request()->validate([
-            'plateNo'=> 'required|min:4|max:4|unique:buses,plateNo',
-            'type'=> 'required',
-            'driverName' => 'required',
-            'assistantName'=> 'required',
-        ]);
+        $busAttributes = $this->validateBus();
 
         $buses = Bus::create($busAttributes);
 
@@ -54,15 +50,38 @@ class BusController extends Controller
         return view('buses.show', ['bus' =>$bus, 'seatlayouts' => $seatlayouts,'currentlayout' => $currentlayout]);
     }
 
-    public function update()
+    public function edit(Bus $bus)
     {
-        return view('buses.update');
+        return view('buses.edit',['bus'=>$bus]);
+    }
+
+    public function update(Bus $bus)
+    {
+        $attributes= $this->validateBus($bus);
+
+//        if($attributes['thumbnail'] ?? false){
+//            $attributes['thumbnail'] = \request()->file('thumbnail')->store('thumbnails');
+//        }
+
+        $bus->update($attributes);
+        return back()->with('message','Bus updated');
     }
 
     public function destroy(Bus $bus)
     {
         $bus->delete();
         return back()->with('message' , 'Successfully Deleted');
+    }
+
+    protected function validateBus(?Bus $bus = null): array
+    {
+        $bus ??= new Bus();
+
+        return \request()->validate([
+            'plateNo'=> ['required', 'min:4', 'max:4',
+                Rule::unique('buses', 'plateNo')->ignore($bus)],
+            'type'=> 'required',
+        ]);
     }
 
     public function createSeatandRoute(string $seatType,int $seat_type_id,int $price,int $bus_id){

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Trip;
 use App\Models\Bus;
 use App\Models\Driver;
+use Illuminate\Validation\Rule;
 
 class tripController extends Controller
 {
@@ -22,6 +23,11 @@ class tripController extends Controller
     {
         $drivers= Driver::all();
         return view('trips.create',['bus' => $bus, 'drivers' => $drivers]);
+    }
+
+    public function show(Trip $trip)
+    {
+        return view('trips.show',['trip'=>$trip]);
     }
 
     public function store(Bus $bus)
@@ -40,6 +46,51 @@ class tripController extends Controller
         ]);
 
         return back()->with('message', 'successfully added a new Trip');
+    }
+
+    public function edit(Trip $trip)
+    {
+        return view('trips.edit',['trip'=>$trip]);
+    }
+
+    public function update(Trip $trip)
+    {
+
+        $attributes = \request()->validate([
+            'from' => 'required',
+            'to' => 'required',
+            'startTime' => 'required'
+        ]);
+
+
+        $driver = Driver::where('name','=',\request('driver'))->first();
+        $route=Route::create($attributes);
+        Trip::create([
+            'bus_id' => $bus->id,
+            'route_id' => $route->id,
+            'driver_id' => $driver->id,
+        ]);
+
+        $attributes= $this->validateTrip($trip);
+        $trip->update($attributes);
+        return back()->with('message','Trip updated');
+    }
+
+    public function destroy(Trip $trip)
+    {
+        $trip->delete();
+        return back()->with('message' , 'Successfully Deleted');
+    }
+
+    protected function validateTrip(?Trip $trip = null): array
+    {
+        $trip ??= new Trip();
+
+        return \request()->validate([
+            'plateNo'=> ['required', 'min:4', 'max:4',
+                Rule::unique('buses', 'plateNo')->ignore($bus)],
+            'type'=> 'required',
+        ]);
     }
 
 }
