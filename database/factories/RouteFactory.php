@@ -17,7 +17,6 @@ class RouteFactory extends Factory
         return [
             'from' => $this->faker->streetSuffix,
             'to' => $this->faker->streetSuffix,
-            'startTime' => $this->faker->dateTime,
         ];
     }
 }

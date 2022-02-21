@@ -17,7 +17,9 @@ class TripFactory extends Factory
         return [
             'bus_id' => random_int(1,4),
             'route_id' => random_int(1,2),
-            'driver_id' => random_int(1,7)
+            'driver_id' => random_int(1,7),
+            'startTime' => $this->faker->dateTime,
+
         ];
     }
 }

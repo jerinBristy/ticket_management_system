@@ -35,14 +35,15 @@ class tripController extends Controller
         $attributes = \request()->validate([
             'from' => 'required',
             'to' => 'required',
-            'startTime' => 'required'
         ]);
         $driver = Driver::where('name','=',\request('driver'))->first();
         $route=Route::create($attributes);
+
         Trip::create([
             'bus_id' => $bus->id,
             'route_id' => $route->id,
             'driver_id' => $driver->id,
+            'startTime' => \request('startTime')
         ]);
 
         return back()->with('message', 'successfully added a new Trip');

@@ -18,7 +18,6 @@ class CreateRoutesTable extends Migration
             $table->timestamps();
             $table->string('from');
             $table->string('to');
-            $table->dateTime('startTime');
         });
     }
 

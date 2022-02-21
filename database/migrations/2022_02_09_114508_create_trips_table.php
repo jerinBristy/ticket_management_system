@@ -19,6 +19,8 @@ class CreateTripsTable extends Migration
             $table->foreignId('bus_id')->constrained();
             $table->foreignId('route_id')->constrained();
             $table->foreignId('driver_id')->constrained();
+            $table->dateTime('startTime');
+
         });
     }
 

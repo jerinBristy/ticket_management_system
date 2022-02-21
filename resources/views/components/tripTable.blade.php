@@ -14,7 +14,7 @@
         <tr>
             <td>{{$trip->bus->plateNo}}</td>
             <td>{{$trip->bus->type}}</td>
-            <td>{{$trip->route->startTime}}</td>
+            <td>{{$trip->startTime}}</td>
             <td>{{$trip->route->from}}</td>
             <td>{{$trip->route->to}}</td>
             <td>{{$trip->driver->name}}</td>
