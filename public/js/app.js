@@ -19571,6 +19571,11 @@ if (successAlert) {
 
   setTimeout(hideElement, 4000);
 }
+
+$(".image-radio img").click(function () {
+  alert(1);
+  $(this).prev().attr('checked', true);
+});
 })();
 
 /******/ })()

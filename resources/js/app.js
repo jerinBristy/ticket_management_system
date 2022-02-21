@@ -8,6 +8,11 @@ if(successAlert) {
     }
 }
 
+$(".image-radio img").click(function(){
+    alert(1);
+    $(this).prev().attr('checked',true);
+})
+
 
 
 

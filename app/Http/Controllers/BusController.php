@@ -50,7 +50,8 @@ class BusController extends Controller
     public function show(Bus $bus)
     {
         $seatlayouts=SeatLayout::all();
-        return view('buses.show', ['bus' =>$bus, 'seatlayouts' => $seatlayouts]);
+        $currentlayout=SeatLayout::find($bus->seatLayout_id);
+        return view('buses.show', ['bus' =>$bus, 'seatlayouts' => $seatlayouts,'currentlayout' => $currentlayout]);
     }
 
     public function update()
