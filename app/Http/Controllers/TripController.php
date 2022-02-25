@@ -51,7 +51,8 @@ class tripController extends Controller
 
     public function edit(Trip $trip)
     {
-        return view('trips.edit',['trip'=>$trip]);
+        $routes = Route::all();
+        return view('trips.edit',['trip'=>$trip, 'routes'=>$routes]);
     }
 
     public function update(Trip $trip)
@@ -81,6 +82,12 @@ class tripController extends Controller
     {
         $trip->delete();
         return back()->with('message' , 'Successfully Deleted');
+    }
+
+    public function getRoutes()
+    {
+       $route = Route::all();
+        return $route;
     }
 
     protected function validateTrip(?Trip $trip = null): array

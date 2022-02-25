@@ -9,7 +9,7 @@
 
             <x-form.input type="datetime-local" name="startTime" />
 {{--{{dd($drivers)}}--}}
-            <x-form.select name="driver" :values="$drivers"/>
+            <x-form.select name="driver" :values="$drivers" columnName="name"/>
 
 
             <button class="btn" type="submit">Add Trips</button>

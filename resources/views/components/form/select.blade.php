@@ -1,9 +1,9 @@
-@props(['name','values'])
+@props(['name','values','columnName','classname'])
 
-<label for={{$name}}><b>Driver Name</b></label>
-<select name={{$name}} id={{$name}}>
-    <option value="">Select a Driver</option>
+<label for={{$name}}><b>{{$name}}</b></label>
+<select name={{$name}} id={{$name}} class="{{$classname ?? ''}}">
+    <option value="">Select {{$name}}</option>
     @foreach($values as $value)
-        <option value="{{$value->name}}">{{$value->name}}</option>
+        <option value="{{$value->$columnName}}">{{$value->$columnName}}</option>
     @endforeach
 </select>

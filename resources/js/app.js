@@ -8,10 +8,22 @@ if(successAlert) {
     }
 }
 
-$(".image-radio img").click(function(){
-    alert(1);
-    $(this).prev().attr('checked',true);
-})
+// $(".image-radio img").click(function(){
+//     alert(1);
+//     $(this).prev().attr('checked',true);
+// })
+
+let from = document.querySelector('.from');
+let to = document.querySelector('.to');
+from.addEventListener('change',function (){
+    $routes = fetch('/trip/selected-from').then(function(response) {
+        console.log(response.json());
+    })
+    // console.log($routes);
+});
+
+
+
 
 
 

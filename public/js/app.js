@@ -19570,11 +19570,18 @@ if (successAlert) {
   };
 
   setTimeout(hideElement, 4000);
-}
+} // $(".image-radio img").click(function(){
+//     alert(1);
+//     $(this).prev().attr('checked',true);
+// })
 
-$(".image-radio img").click(function () {
-  alert(1);
-  $(this).prev().attr('checked', true);
+
+var from = document.querySelector('.from');
+var to = document.querySelector('.to');
+from.addEventListener('change', function () {
+  $routes = fetch('/trip/selected-from').then(function (response) {
+    console.log(response.json());
+  }); // console.log($routes);
 });
 })();
 
