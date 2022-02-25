@@ -15,13 +15,20 @@ if(successAlert) {
 
 let from = document.querySelector('.from');
 let to = document.querySelector('.to');
-from.addEventListener('change',function (){
-    $routes = fetch('/trip/selected-from').then(function(response) {
-        console.log(response.json());
-    })
-    // console.log($routes);
-});
+let output = document.querySelector('.output');
 
+from.addEventListener('change',getMatchedRoutes);
+
+function getMatchedRoutes(){
+    fetch('/trip/selected-from')
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            // data.forEach(function (route){
+            //
+            // }
+        });
+}
 
 
 

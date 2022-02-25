@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             ]
         );
         \App\Models\Seat::factory(24)->create();
-        \App\Models\Route::factory(2)->create();
+        \App\Models\Location::factory(4)->create();
+        \App\Models\Route::factory(4)->create();
         \App\Models\Driver::factory(7)->create();
         \App\Models\Trip::factory(5)->create();
         \App\Models\Passenger::factory(4)->create();
