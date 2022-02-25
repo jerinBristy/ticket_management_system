@@ -1,6 +1,13 @@
 <x-layout>
     <div class="container">
-        <x-form.select name="from" :values="$routes" columnName="from" classname="from"/>
+        
+        <label for=from><b>From</b></label>
+        <select name=from id=from class="from">
+            <option value="">select From</option>
+            @foreach($routes as $route)
+                <option value="{{$route->from_location_id}}">{{$route->fromLocation->name}}</option>
+            @endforeach
+        </select>
 
         <label for=to><b>to</b></label>
         <select name=to id=to class="to">
