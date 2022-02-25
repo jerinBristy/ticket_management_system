@@ -15,8 +15,8 @@
             <td>{{$trip->bus->plateNo}}</td>
             <td>{{$trip->bus->type}}</td>
             <td>{{$trip->startTime}}</td>
-            <td>{{$trip->route->from}}</td>
-            <td>{{$trip->route->to}}</td>
+            <td>{{$trip->route->fromLocation->name}}</td>
+            <td>{{$trip->route->toLocation->name}}</td>
             <td>{{$trip->driver->name}}</td>
             <td>
                 <a href="/trip/show/{{$trip->id}}" class="bluebtn">Trip Details</a>
