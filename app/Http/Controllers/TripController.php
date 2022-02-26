@@ -62,22 +62,16 @@ class tripController extends Controller
 
     public function update(Trip $trip)
     {
+        $route= Route::where('from_location_id' ,'=', \request('from'))
+            ->orwhere('to_location_id','=', \request('to'))->first();
 
-        $attributes = \request()->validate([
-            'from' => 'required',
-            'to' => 'required',
-        ]);
+        $driver = Driver::where('id','=',\request('driver'))->first();
 
+        $attributes = [
+            'route_id' => $route->id?? $trip->route_id,
+            'driver_id' => $driver->id ?? $trip->driver_id,
+        ];
 
-        $driver = Driver::where('name','=',\request('driver'))->first();
-        $route=Route::create($attributes);
-        Trip::create([
-            'bus_id' => $bus->id,
-            'route_id' => $route->id,
-            'driver_id' => $driver->id,
-        ]);
-
-        $attributes= $this->validateTrip($trip);
         $trip->update($attributes);
         return back()->with('message','Trip updated');
     }

@@ -9,7 +9,9 @@
             <select name=from id=from class="from">
                 <option value="">{{$trip_details->route->fromLocation->name}}</option>
                 @foreach($routes as $route)
-                    <option value="{{$route->from_location_id}}">{{$route->fromLocation->name}}</option>
+                    @if($route->fromLocation->name!=$trip_details->route->fromLocation->name)
+                        <option value="{{$route->from_location_id}}">{{$route->fromLocation->name}}</option>
+                    @endif
                 @endforeach
             </select>
 
