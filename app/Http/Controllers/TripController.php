@@ -52,10 +52,12 @@ class tripController extends Controller
 
     public function edit(Trip $trip)
     {
+
         $routes = Route::with(['fromLocation', 'toLocation'])->groupBy('from_location_id')->get();
+        $drivers= Driver::all();
+        $trip_details = Trip::with(['driver','route.fromLocation','route.toLocation'])->where('id',$trip->id)->first();
 
-
-        return view('trips.edit',['trip'=>$trip, 'routes'=>$routes]);
+        return view('trips.edit',['trip'=>$trip, 'routes'=>$routes, 'drivers'=>$drivers, 'trip_details' => $trip_details]);
     }
 
     public function update(Trip $trip)
@@ -64,7 +66,6 @@ class tripController extends Controller
         $attributes = \request()->validate([
             'from' => 'required',
             'to' => 'required',
-            'startTime' => 'required'
         ]);
 
 
