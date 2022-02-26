@@ -88,6 +88,7 @@ class tripController extends Controller
 
     public function getRoutes()
     {
+        dd(\request('from'));
        $route = Route::all();
         return $route;
     }
