@@ -52,7 +52,8 @@ class tripController extends Controller
 
     public function edit(Trip $trip)
     {
-        $routes = Route::all();
+        $routes = Route::with(['fromLocation', 'toLocation'])->groupBy('from_location_id')->get();
+
 
         return view('trips.edit',['trip'=>$trip, 'routes'=>$routes]);
     }

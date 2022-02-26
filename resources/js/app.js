@@ -15,16 +15,26 @@ if(successAlert) {
 
 let from = document.querySelector('.from');
 let to = document.querySelector('.to');
-let output = document.querySelector('.output');
 
 from.addEventListener('change',getMatchedRoutes);
 
 function getMatchedRoutes(){
+
+    for(let i = to.options.length; i >= 0; i--) {
+        to.remove(i);
+    }
+
     let promise = fetch('/trip/selected-from/'+ from.value)
         .then((res) => res.json())
-        .then((data) => {
-            data.forEach(function(data) {
-                console.log(data.to_location.name);
+        .then((datas) => {
+            datas.forEach(function(data) {
+
+                let opt = document.createElement('option');
+                opt.appendChild( document.createTextNode(data.to_location.name));
+                opt.value = data.to_location.name;
+
+                to.appendChild(opt);
+
             });
 
 

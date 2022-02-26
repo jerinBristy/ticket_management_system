@@ -22,7 +22,24 @@ class DatabaseSeeder extends Seeder
         );
         \App\Models\Seat::factory(24)->create();
         \App\Models\Location::factory(4)->create();
-        \App\Models\Route::factory(4)->create();
+        DB::table('routes')->insert([
+            [
+                'from_location_id' => 1,
+                'to_location_id' => 2
+            ],
+            [
+                'from_location_id' => 3,
+                'to_location_id' => 4
+            ],
+            [
+                'from_location_id' => 1,
+                'to_location_id' => 3
+            ],
+            [
+                'from_location_id' => 2,
+                'to_location_id' => 1
+            ],
+        ]);
         \App\Models\Driver::factory(7)->create();
         \App\Models\Trip::factory(5)->create();
         \App\Models\Passenger::factory(4)->create();

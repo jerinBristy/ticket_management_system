@@ -1,6 +1,6 @@
 <x-layout>
     <div class="container">
-        
+
         <label for=from><b>From</b></label>
         <select name=from id=from class="from">
             <option value="">select From</option>
@@ -11,7 +11,7 @@
 
         <label for=to><b>to</b></label>
         <select name=to id=to class="to">
-            <option value="">Select to</option>
+            <option value="to">Select to</option>
         </select>
 
         <div class="output">
