@@ -15,7 +15,8 @@ class tripController extends Controller
     {
         return view ('trips.list',[
 //           for one to many relationship between bus and trip
-            'trips' => Trip::with(array('bus','route','driver'))->get(),
+            'trips' => Trip::with(array('bus','route.fromLocation','route.toLocation','driver'))->get(),
+
         ]);
     }
 
@@ -52,6 +53,7 @@ class tripController extends Controller
     public function edit(Trip $trip)
     {
         $routes = Route::all();
+
         return view('trips.edit',['trip'=>$trip, 'routes'=>$routes]);
     }
 
