@@ -43,7 +43,7 @@ Route::get('trip/create/{bus}',[TripController::class, 'create']);
 Route::get('trip/show/{trip}',[TripController::class, 'show']);
 Route::post('trip/create/{bus}{driver}',[TripController::class, 'store']);
 Route::get('trip/{trip}/edit',[TripController::class,'edit']);
-Route::get('/trip/selected-from',[TripController::class,'getRoutes']);
+Route::get('/trip/selected-from/{from}',[TripController::class,'getRoutes']);
 Route::patch('trip/{trip}',[TripController::class,'update']);
 Route::delete('trip/{trip}', [TripController::class, 'destroy']);
 

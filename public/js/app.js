@@ -19582,12 +19582,12 @@ var output = document.querySelector('.output');
 from.addEventListener('change', getMatchedRoutes);
 
 function getMatchedRoutes() {
-  fetch('/trip/selected-from').then(function (res) {
+  var promise = fetch('/trip/selected-from/' + from.value).then(function (res) {
     return res.json();
   }).then(function (data) {
-    console.log(data); // data.forEach(function (route){
-    //
-    // }
+    data.forEach(function (data) {
+      console.log(data.to_location.name);
+    });
   });
 }
 })();

@@ -86,11 +86,10 @@ class tripController extends Controller
         return back()->with('message' , 'Successfully Deleted');
     }
 
-    public function getRoutes()
+    public function getRoutes(String $from)
     {
-        dd(\request('from'));
-       $route = Route::all();
-        return $route;
+       $toLocations = Route::where('from_location_id', $from)->with('toLocation')->get();
+        return $toLocations;
     }
 
     protected function validateTrip(?Trip $trip = null): array
