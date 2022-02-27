@@ -1,6 +1,6 @@
 <x-layout>
     <div class="container">
-
+        <h1>Update Trip Information</h1>
         <form action="/trip/{{$trip->id}}" method="POST">
             @csrf
             @method('patch')

@@ -10,7 +10,7 @@ class Location extends Model
 {
     use HasFactory;
 
-
+    protected $guarded = [];
     public function routes()
     {
         return $this->hasMany(Route::class);

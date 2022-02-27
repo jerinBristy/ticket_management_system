@@ -21,6 +21,7 @@
             <a href="/login" class="item">Login</a>
         @endguest
         <a href="/bus/create" class="item">Add Transport</a>
+        <a href="/location/create" class="item">Add Location</a>
         <a href="/bus" class="item">Transports</a>
         <a href="/trip" class="item">Trips</a>
     </nav>

@@ -7,6 +7,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\SeatController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +47,8 @@ Route::get('trip/{trip}/edit',[TripController::class,'edit']);
 Route::get('/trip/selected-from/{from}',[TripController::class,'getRoutes']);
 Route::patch('trip/{trip}',[TripController::class,'update']);
 Route::delete('trip/{trip}', [TripController::class, 'destroy']);
+
+Route::get('location/create', [LocationController::class, 'create']);
+Route::post('location/create',[LocationController::class, 'store']);
 
 
