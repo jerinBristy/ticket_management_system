@@ -1,6 +1,6 @@
 @props(['buses'])
 
-<table id="bus">
+<table id="table">
 
     <tr>
         <th>Plate No</th>
@@ -22,7 +22,6 @@
                         @method('DELETE')
                         <button class="redbtn">Delete</button>
                     </form>
-
             </td>
         </tr>
     @endforeach

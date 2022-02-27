@@ -85,7 +85,20 @@
         width: 100%;
     }
 
-    .btn:hover{
+    .link{
+        width: 40%;
+        margin:30px auto;
+    }
+    .btn-a{
+        color: #151414;
+        margin-left: 300px;
+        padding: 14px 50px;
+        border: none;
+        background-color: #dcab0c;
+    }
+
+
+    .btn:hover, .btn-a:hover{
         background-color: #e1c152 ;
     }
 
@@ -116,7 +129,7 @@
     }
 
 /*    table*/
-    #bus {
+    #table {
         font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
         width: 70%;
@@ -125,16 +138,16 @@
         margin-top: 10px;
     }
 
-    #bus td, #bus th {
+    #table td, #table th {
         border: 1px solid #888686;
         padding: 8px;
     }
 
-    #bus tr:nth-child(even){background-color: #3d3d41;}
+    #table tr:nth-child(even){background-color: #3d3d41;}
 
-    #bus tr:hover {background-color: rgba(221, 221, 221, 0.56); color: black}
+    #table tr:hover {background-color: rgba(221, 221, 221, 0.56); color: black}
 
-    #bus th {
+    #table th {
         padding-top: 10px;
         padding-bottom: 10px;
         text-align: center;

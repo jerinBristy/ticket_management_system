@@ -20,7 +20,7 @@
         @guest
             <a href="/login" class="item">Login</a>
         @endguest
-        <a href="/location/create" class="item">Add Location</a>
+        <a href="/location/index" class="item">Locations</a>
         <a href="/route/create" class="item">Create Route</a>
         <a href="/bus" class="item">Transports</a>
         <a href="/trip" class="item">Trips</a>

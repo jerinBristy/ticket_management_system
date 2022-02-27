@@ -49,6 +49,7 @@ Route::get('/trip/selected-from/{from}',[TripController::class,'getRoutes']);
 Route::patch('trip/{trip}',[TripController::class,'update']);
 Route::delete('trip/{trip}', [TripController::class, 'destroy']);
 
+Route::get('location/index',[LocationController::class,'index']);
 Route::get('location/create', [LocationController::class, 'create']);
 Route::post('location/create',[LocationController::class, 'store']);
 

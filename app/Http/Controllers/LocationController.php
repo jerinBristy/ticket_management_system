@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
+    public function index()
+    {
+        $locations = Location::all();
+        return view('locations.index',['locations'=>$locations]);
+    }
+
     public function create()
     {
         return view('location.create');
@@ -21,6 +27,6 @@ class LocationController extends Controller
 
         Location::create($attribute);
 
-        return back()->with('message', 'Added a new Location.');
+        return redirect('/location/index')->with('message', 'Added a new Location.');
     }
 }
