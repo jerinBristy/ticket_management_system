@@ -159,6 +159,18 @@
     .greenbtn:hover, .bluebtn:hover,.redbtn:hover{
         cursor: pointer;
     }
+    /*seat layout image*/
+    #radio-button-wrapper{
+        display: flex;
+    }
+    .image-radio{
+        margin-right: 7px;
+        padding: 20px;
+    }
+
+    .img{
+        width: 90%;
+    }
 
 }
 

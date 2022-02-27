@@ -1,5 +1,5 @@
 require('./bootstrap');
-
+//for flash message
 let successAlert = document.querySelector('.alert-success');
 if(successAlert) {
     setTimeout(hideElement, 4000);
@@ -8,11 +8,7 @@ if(successAlert) {
     }
 }
 
-// $(".image-radio img").click(function(){
-//     alert(1);
-//     $(this).prev().attr('checked',true);
-// })
-
+//to change destination automatically according to user's input
 let from = document.querySelector('.from');
 let to = document.querySelector('.to');
 
@@ -40,6 +36,10 @@ function getMatchedRoutes(){
 
         });
 }
+
+//for seat layout radio button
+
+
 
 
 

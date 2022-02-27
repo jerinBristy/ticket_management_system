@@ -9,18 +9,21 @@
             <img src="{{asset(''. $currentlayout->design??'No layouts')}}" class="img">
         @endif
         <br>
-        <h3>All Layouts</h3>
-        <div id="radio-button-wrapper">
-        @foreach($seatlayouts as $seatlayout)
+        <h3 class="heading-child">All Layouts</h3>
 
-                <span class="image-radio">
-                    <input name="layout-img" style="display:none" type="radio"/>
-                    <img src="{{asset(''. $seatlayout->design)}}" class="img">
-                </span>
-
-        @endforeach
-        </div>
-        <a class="btn" href="/seat/create/{{$bus->id}}"> Add or Change Seat Layout</a>
-    </div>
+        <form action="/seat/create/{{$bus->id}}" method="POST">
+            @csrf
+            <div id="radio-button-wrapper">
+                @foreach($seatlayouts as $seatlayout)
+                    <span class="image-radio">
+                        <input id="layout-img-{{ $seatlayout->id }}" name="seat_layout_id" type="radio" class="seat-layout"/>
+                        <label for="layout-img-{{ $seatlayout->id }}">
+                            <img src="{{asset(''. $seatlayout->design)}}" class="img">
+                        </label><br>
+                    </span>
+                @endforeach
+            </div>
+                <button class="btn">Add or Update layout</button>
+        </form>
 
 </x-layout>

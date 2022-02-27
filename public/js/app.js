@@ -19560,7 +19560,8 @@ var __webpack_exports__ = {};
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //for flash message
+
 
 var successAlert = document.querySelector('.alert-success');
 
@@ -19570,10 +19571,7 @@ if (successAlert) {
   };
 
   setTimeout(hideElement, 4000);
-} // $(".image-radio img").click(function(){
-//     alert(1);
-//     $(this).prev().attr('checked',true);
-// })
+} //to change destination automatically according to user's input
 
 
 var from = document.querySelector('.from');
@@ -19595,7 +19593,7 @@ function getMatchedRoutes() {
       to.appendChild(opt);
     });
   });
-}
+} //for seat layout radio button
 })();
 
 /******/ })()
