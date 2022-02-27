@@ -23,7 +23,8 @@ class tripController extends Controller
     public function create(Bus $bus)
     {
         $drivers= Driver::all();
-        return view('trips.create',['bus' => $bus, 'drivers' => $drivers]);
+        $routes = Route::with('fromLocation' , 'toLocation')->groupBy('from_location_id')->get();
+        return view('trips.create',['bus' => $bus, 'drivers' => $drivers, 'routes' => $routes]);
     }
 
     public function show(Trip $trip)
@@ -33,12 +34,10 @@ class tripController extends Controller
 
     public function store(Bus $bus)
     {
-        $attributes = \request()->validate([
-            'from' => 'required',
-            'to' => 'required',
-        ]);
+        $route= Route::where('from_location_id' ,'=', \request('from'))
+            ->orwhere('to_location_id','=', \request('to'))->first();
+
         $driver = Driver::where('name','=',\request('driver'))->first();
-        $route=Route::create($attributes);
 
         Trip::create([
             'bus_id' => $bus->id,

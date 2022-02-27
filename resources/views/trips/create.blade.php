@@ -3,9 +3,18 @@
         <h1>Add Trips</h1>
         <form method="POST" action="/trip/create/{{$bus->id}}}">
             @csrf
-            <x-form.input name="from"/>
+            <label for=from><b>From</b></label>
+            <select name=from id=from class="from">
+                <option value="">Select starting point</option>
+                @foreach($routes as $route)
+                    <option value="{{$route->from_location_id}}">{{$route->fromLocation->name}}</option>
+                @endforeach
+            </select>
 
-            <x-form.input name="to"/>
+            <label for=to><b>to</b></label>
+            <select name=to id=to class="to">
+                <option value="to">Select Destination</option>
+            </select>
 
             <x-form.input type="datetime-local" name="startTime" />
 {{--{{dd($drivers)}}--}}
