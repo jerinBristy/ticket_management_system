@@ -8,6 +8,7 @@ use App\Http\Controllers\BusController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\RouteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,5 +51,8 @@ Route::delete('trip/{trip}', [TripController::class, 'destroy']);
 
 Route::get('location/create', [LocationController::class, 'create']);
 Route::post('location/create',[LocationController::class, 'store']);
+
+Route::get('route/create', [RouteController::class, 'create']);
+Route::post('route/create', [RouteController::class, 'store']);
 
 

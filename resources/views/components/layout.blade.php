@@ -22,6 +22,7 @@
         @endguest
         <a href="/bus/create" class="item">Add Transport</a>
         <a href="/location/create" class="item">Add Location</a>
+        <a href="/route/create" class="item">Create Route</a>
         <a href="/bus" class="item">Transports</a>
         <a href="/trip" class="item">Trips</a>
     </nav>
