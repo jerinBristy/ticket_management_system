@@ -13,6 +13,7 @@
             <td>{{$bus->type}}</td>
             <td>
                 <a href="/trip/create/{{$bus->id}}" class="greenbtn">Add Trips</a>
+                <a href="/bus/create" class="greenbtn">Add Transport</a>
                 <a href="/bus/show/{{$bus->id}}" class="bluebtn">Bus Details</a>
                 <a href="bus/{{$bus->id}}/edit" class="bluebtn">Edit</a>
 
