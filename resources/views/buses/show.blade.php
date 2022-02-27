@@ -11,12 +11,13 @@
         <br>
         <h3 class="heading-child">All Layouts</h3>
 
-        <form action="/seat/create/{{$bus->id}}" method="POST">
+        <form action="/seat/store/{{$bus->id}}" method="POST">
             @csrf
             <div id="radio-button-wrapper">
                 @foreach($seatlayouts as $seatlayout)
                     <span class="image-radio">
-                        <input id="layout-img-{{ $seatlayout->id }}" name="seat_layout_id" type="radio" class="seat-layout"/>
+                        <input id="layout-img-{{ $seatlayout->id }}" name="seat_layout_id"
+                               type="radio" class="seat-layout" value="{{$seatlayout->id}}"/>
                         <label for="layout-img-{{ $seatlayout->id }}">
                             <img src="{{asset(''. $seatlayout->design)}}" class="img">
                         </label><br>
@@ -25,5 +26,5 @@
             </div>
                 <button class="btn">Add or Update layout</button>
         </form>
-
+    </div>
 </x-layout>

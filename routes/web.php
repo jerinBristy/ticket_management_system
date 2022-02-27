@@ -38,7 +38,7 @@ Route::get('bus/{bus}/edit',[BusController::class,'edit']);
 Route::patch('bus/{bus}',[BusController::class,'update']);
 Route::delete('bus/{bus}', [BusController::class, 'destroy']);
 
-Route::get('seat/create/{bus}',[SeatController::class, 'create']);
+Route::post('seat/store/{bus}',[SeatController::class, 'store']);
 
 Route::get('trip', [TripController::class,'index']);
 Route::get('trip/create/{bus}',[TripController::class, 'create']);
