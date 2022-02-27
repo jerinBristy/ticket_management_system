@@ -17,10 +17,13 @@
                 @foreach($seatlayouts as $seatlayout)
                     <span class="image-radio">
                         <input id="layout-img-{{ $seatlayout->id }}" name="seat_layout_id"
-                               type="radio" class="seat-layout" value="{{$seatlayout->id}}"/>
-                        <label for="layout-img-{{ $seatlayout->id }}">
-                            <img src="{{asset(''. $seatlayout->design)}}" class="img">
-                        </label><br>
+                               type="radio" class="seat-layout" value="{{$seatlayout->id}}" style="display: none"/>
+                        <div class="layout-border">
+                            <label for="layout-img-{{ $seatlayout->id }}">
+                                <img src="{{asset(''. $seatlayout->design)}}" class="img">
+                            </label>
+                        </div>
+
                     </span>
                 @endforeach
             </div>

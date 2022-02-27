@@ -16,9 +16,22 @@ class SeatController extends Controller
         ]);
 
         $seats = SeatLayout::select('regularSeat','premiumSeat')->where('id',$seatLayout)->first();
-        $premium_seat = $seats->premiumSeat;
-        while ()
-        Seat::create()
+
+        $this->createSeats($bus->id,$seats->regularSeat,1);
+        $this->createSeats($bus->id,$seats->premiumSeat,2);
+
         return back()->with('message', 'successfully changed seat layout');
+    }
+
+    protected function createSeats(int $bus_id, int $seats, int $seat_type_id)
+    {
+        while ($seats>0)
+        {
+            Seat::create([
+                'bus_id' => $bus_id,
+                'seat_type_id' => $seat_type_id
+            ]);
+            $seats--;
+        }
     }
 }

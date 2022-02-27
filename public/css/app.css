@@ -169,8 +169,12 @@
     }
 
     .img{
-        width: 90%;
+        width: 200px;
     }
 
+    input[type=radio]:checked + .layout-border{
+        border: #FBC91B 4px solid;
+
+    }
 }
 
