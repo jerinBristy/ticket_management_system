@@ -53,6 +53,7 @@ Route::get('location/index',[LocationController::class,'index']);
 Route::get('location/create', [LocationController::class, 'create']);
 Route::post('location/create',[LocationController::class, 'store']);
 
+Route::get('route/index', [RouteController::class,'index']);
 Route::get('route/create', [RouteController::class, 'create']);
 Route::post('route/create', [RouteController::class, 'store']);
 

@@ -10,6 +10,13 @@ class RouteController extends Controller
 {
     protected $guarded =[];
 
+    public function index()
+    {
+        $routes = Route::with('fromLocation', 'toLocation')->get();
+
+        return view('route.index',['routes'=>$routes]);
+    }
+
     public function create()
     {
         $locations = Location::all();
@@ -24,6 +31,6 @@ class RouteController extends Controller
         ]);
 
         Route::create($attributes);
-        return redirect('/')->with('message', 'Successfully created a new route');
+        return redirect('/route/index')->with('message', 'Successfully created a new route');
     }
 }
