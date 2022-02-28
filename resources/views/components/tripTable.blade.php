@@ -18,16 +18,26 @@
             <td>{{$trip->route->fromLocation->name}}</td>
             <td>{{$trip->route->toLocation->name}}</td>
             <td>{{$trip->driver->name}}</td>
-            <td>
-                <a href="/trip/show/{{$trip->id}}" class="bluebtn">Trip Details</a>
-                <a href="trip/{{$trip->id}}/edit" class="bluebtn">Edit</a>
-
-                <form method="POST" action="/trip/{{$trip->id}}}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="redbtn">Delete</button>
-                </form>
-
+            <td class="action">
+                <div>
+                    <a href="/trip/show/{{$trip->id}}" class="details">
+                        <x-icon.details/>
+                    </a>
+                </div>
+               <div>
+                   <a href="trip/{{$trip->id}}/edit" class="edit">
+                       <x-icon.edit/>
+                   </a>
+               </div>
+                <div>
+                    <form method="POST" action="/trip/{{$trip->id}}}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="delete">
+                            <x-icon.delete/>
+                        </button>
+                    </form>
+                </div>
             </td>
         </tr>
     @endforeach
