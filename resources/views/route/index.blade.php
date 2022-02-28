@@ -10,8 +10,7 @@
             </tr>
         @endforeach
     </table>
-    <div class="link">
-        <a href="/route/create" class="btn-a">Create Route</a>
-    </div>
+
+    <x-linkButton name="route"/>
 
 </x-layout>

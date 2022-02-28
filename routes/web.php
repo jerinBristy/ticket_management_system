@@ -9,6 +9,7 @@ use App\Http\Controllers\TripController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\DriverController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,7 @@ Route::get('route/index', [RouteController::class,'index']);
 Route::get('route/create', [RouteController::class, 'create']);
 Route::post('route/create', [RouteController::class, 'store']);
 
+Route::get('driver/index', [DriverController::class,'index']);
+Route::get('driver/create', [DriverController::class, 'create']);
+Route::post('driver/create', [DriverController::class, 'store']);
 

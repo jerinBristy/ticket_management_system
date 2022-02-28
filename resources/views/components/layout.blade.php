@@ -22,6 +22,7 @@
         @endguest
         <a href="/location/index" class="item">Locations</a>
         <a href="/route/index" class="item">Routes</a>
+        <a href="/driver/index" class="item">Drivers</a>
         <a href="/bus" class="item">Transports</a>
         <a href="/trip" class="item">Trips</a>
     </nav>

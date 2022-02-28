@@ -8,7 +8,7 @@
             </tr>
         @endforeach
     </table>
-    <div class="link">
-        <a href="/location/create" class="btn-a">Add Location</a>
-    </div>
+
+    <x-linkButton name="location"/>
+
 </x-layout>
