@@ -14,6 +14,6 @@ class Passenger extends Model
 
     public function seat()
     {
-        return $this->belongsToMany(Seat::class);
+        return $this->belongsToMany(Seat::class)->using(PassengerSeat::class)->withPivot('bus_id','trip_id','price');
     }
 }

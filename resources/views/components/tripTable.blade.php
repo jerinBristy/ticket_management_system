@@ -20,6 +20,13 @@
             <td>{{$trip->driver->name}}</td>
             <td class="action">
                 <div>
+                    <a href="/trip/book/{{$trip->id}}" class="add-trips tooltip">
+                        <x-icon.booking/>
+                        <span class="tooltiptext">Book</span>
+                    </a>
+                </div>
+
+                <div>
                     <a href="/trip/show/{{$trip->id}}" class="details tooltip">
                         <x-icon.details/>
                         <span class="tooltiptext">Details</span>

@@ -16,7 +16,9 @@ class RouteFactory extends Factory
     {
         return [
             'from_location_id' => random_int(1,2),
-            'to_location_id' => random_int(3,4)
+            'to_location_id' => random_int(3,4),
+            'seat_type_id' => 1,
+            'price' => random_int(300,500),
         ];
     }
 }
