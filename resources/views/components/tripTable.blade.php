@@ -20,21 +20,24 @@
             <td>{{$trip->driver->name}}</td>
             <td class="action">
                 <div>
-                    <a href="/trip/show/{{$trip->id}}" class="details">
+                    <a href="/trip/show/{{$trip->id}}" class="details tooltip">
                         <x-icon.details/>
+                        <span class="tooltiptext">Details</span>
                     </a>
                 </div>
                <div>
-                   <a href="trip/{{$trip->id}}/edit" class="edit">
+                   <a href="trip/{{$trip->id}}/edit" class="edit tooltip">
                        <x-icon.edit/>
+                       <span class="tooltiptext">Edit</span>
                    </a>
                </div>
                 <div>
                     <form method="POST" action="/trip/{{$trip->id}}}">
                         @csrf
                         @method('DELETE')
-                        <button class="delete">
+                        <button class="delete tooltip">
                             <x-icon.delete/>
+                            <span class="tooltiptext">Delete</span>
                         </button>
                     </form>
                 </div>

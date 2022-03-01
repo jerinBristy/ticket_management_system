@@ -208,10 +208,35 @@
         color: #b94676;
 
     }
-    /*.add-trips , .add-bus{*/
-    /*    color: #bcc1cb;*/
-    /*    padding: 5px 10px;*/
-    /*    border-radius: 15px;*/
-    /*}*/
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        background-color: #777373;
+        color: #bcc1cb;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        width: 120px;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -60px;
+
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
 }
 
