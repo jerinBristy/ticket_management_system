@@ -201,17 +201,17 @@
         width: 30%;
     }
     .add-trips{
-        background-color: #2c9ca0;
+        color: #4db288;
 
     }
     .add-bus{
-        background-color: #37c3c8;
+        color: #b94676;
 
     }
-    .add-trips , .add-bus{
-        color: #bcc1cb;
-        padding: 5px 10px;
-        border-radius: 15px;
-    }
+    /*.add-trips , .add-bus{*/
+    /*    color: #bcc1cb;*/
+    /*    padding: 5px 10px;*/
+    /*    border-radius: 15px;*/
+    /*}*/
 }
 

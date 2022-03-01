@@ -5,18 +5,23 @@
     <tr>
         <th>Plate No</th>
         <th>Type</th>
-        <th>Addition</th>
         <th>Actions</th>
     </tr>
     @foreach($buses as $bus)
         <tr>
             <td>{{$bus->plateNo}}</td>
             <td>{{$bus->type}}</td>
-            <td>
-                <a href="/trip/create/{{$bus->id}}" class="add-trips">Add Trips</a>
-                <a href="/bus/create" class="add-bus">Add Transport</a>
-            </td>
             <td class="action">
+                <div>
+                    <a href="/trip/create/{{$bus->id}}" class="add-trips">
+                        <x-icon.addTrip/>
+                    </a>
+                </div>
+                <div>
+                    <a href="/bus/create" class="add-bus">
+                        <x-icon.addBus/>
+                    </a>
+                </div>
                 <div>
                     <a href="/bus/show/{{$bus->id}}" class="details">
                         <x-icon.details/>
