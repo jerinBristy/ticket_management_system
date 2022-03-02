@@ -10,6 +10,7 @@ use App\Http\Controllers\SeatController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,4 +62,6 @@ Route::post('route/create', [RouteController::class, 'store']);
 Route::get('driver/index', [DriverController::class,'index']);
 Route::get('driver/create', [DriverController::class, 'create']);
 Route::post('driver/create', [DriverController::class, 'store']);
+
+Route::get('booking/create/{trip}/{bus}/{route}',[BookingController::class,'create']);
 

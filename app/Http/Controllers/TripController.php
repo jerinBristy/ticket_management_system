@@ -61,7 +61,7 @@ class tripController extends Controller
 
     public function update(Trip $trip)
     {
-        $route= Route::where('from_location_id' ,'=', \request('from'))
+           $route= Route::where('from_location_id' ,'=', \request('from'))
             ->orwhere('to_location_id','=', \request('to'))->first();
 
         $driver = Driver::where('id','=',\request('driver'))->first();

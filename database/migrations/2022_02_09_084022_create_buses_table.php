@@ -15,7 +15,7 @@ class CreateBusesTable extends Migration
     {
         Schema::create('buses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('seatLayout_id')->nullable();
+            $table->foreignId('seat_layout_id')->nullable();
             $table->timestamps();
             $table->string('plateNo')->unique();
             $table->string('type');

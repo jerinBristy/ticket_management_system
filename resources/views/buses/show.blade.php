@@ -4,7 +4,7 @@
         <h3>Plate No: {{$bus->plateNo}} </h3>
         <h3>Bus Type: {{$bus->type}} </h3>
 
-        @if($bus->seatLayout_id!==null)
+        @if($bus->seat_layout_id!==null)
             <h3>Current Layout</h3>
             <img src="{{asset(''. $currentlayout->design??'No layouts')}}" class="img">
         @endif

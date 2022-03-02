@@ -14,7 +14,7 @@ class SeatController extends Controller
         $seatLayout = \request()->validate([
             'seat_layout_id' => 'required'
         ]);
-        $bus->seatLayout_id = \request('seat_layout_id');
+        $bus->seat_layout_id = \request('seat_layout_id');
         $bus->save();
         $seats = SeatLayout::select('regularSeat','premiumSeat')->where('id',$seatLayout)->first();
 

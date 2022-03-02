@@ -238,5 +238,43 @@
     .tooltip:hover .tooltiptext {
         visibility: visible;
     }
+
+    .booking{
+        width: 70%;
+        margin: auto;
+        text-align: center;
+        display: flex;
+    }
+    .seatBox{
+        border: 1px solid #8c8888;
+        width: 50%;
+        margin: auto;
+    }
+    .premiumBox, .regularBox{
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .premiumBox{
+        width: 20%;
+    }
+    .regularBox{
+        width: 80%;
+    }
+    .regularSeat, .premiumSeat{
+        flex-grow: 1;
+    }
+    .premiumSeat{
+        width: 13%;
+        background-color: #4db288;
+        padding: 5px;
+        margin: 10px;
+    }
+    .regularSeat{
+        width: 7%;
+        background-color: #994db2;
+        padding: 5px;
+        margin: 10px;
+    }
 }
 
