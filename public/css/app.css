@@ -304,16 +304,16 @@
         border-radius: 15px;
     }
     .premiumSeats{
-        width: 17%;
+        width: 10%;
         background-color: #428260;
-        padding: 23px 5px;
+        padding: 10px 5px;
         margin: 15px;
-        border: transparent 4px solid;
+        border: transparent 2px solid;
     }
     .regularSeats{
-        width: 13%;
+        width: 10%;
         background-color: #a95682;
-        padding: 20px 5px;
+        padding: 16px 5px;
         margin: 10px;
         border: transparent 2px solid;
     }

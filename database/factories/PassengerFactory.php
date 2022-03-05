@@ -18,7 +18,6 @@ class PassengerFactory extends Factory
         return [
             'name' => $this->faker->name,
             'phone' => $this->faker->phoneNumber(),
-            'paymentStatus' => 'Paid'
         ];
     }
 }

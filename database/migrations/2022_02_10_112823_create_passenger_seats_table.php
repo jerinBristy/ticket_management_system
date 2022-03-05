@@ -18,7 +18,6 @@ class CreatePassengerSeatsTable extends Migration
             $table->timestamps();
             $table->foreignId('passenger_id')->constrained();
             $table->foreignId('seat_id')->constrained();
-            $table->integer('bus_id');
             $table->integer('trip_id');
             $table->integer('price');
         });

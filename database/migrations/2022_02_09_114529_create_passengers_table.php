@@ -18,7 +18,6 @@ class CreatePassengersTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('phone');
-            $table->string('paymentStatus');
         });
     }
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bus;
+use App\Models\Passenger;
+use App\Models\PassengerSeat;
 use App\Models\Route;
 use App\Models\Trip;
 use App\Models\Seat;
@@ -27,11 +29,24 @@ class BookingController extends Controller
             'route'=>$route, 'bus'=>$bus]);
     }
 
-    public function store()
+    public function store(Trip $trip)
     {
-        $passengerAttribute = \request()->validate([
-            'name' => 'required',
-            'phone' => 'required'
+
+        dd(\request('seatNo'));
+        $passenger = Passenger::where('phone', \request('phone'))->first();
+        if($passenger===null){
+            $passengerAttribute = \request()->validate([
+                'name' => 'required',
+                'phone' => 'required'
+            ]);
+
+           $passenger= Passenger::create($passengerAttribute)->get();
+        }
+        PassengerSeat::create([
+            'passenger_id' => $passenger->id,
+            'trip_id' => $trip->id,
         ]);
+
+
     }
 }
