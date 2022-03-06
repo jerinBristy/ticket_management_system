@@ -63,6 +63,6 @@ Route::get('driver/index', [DriverController::class,'index']);
 Route::get('driver/create', [DriverController::class, 'create']);
 Route::post('driver/create', [DriverController::class, 'store']);
 
-Route::get('booking/create/{trip}/{bus}/{route}',[BookingController::class,'create']);
+Route::get('booking/create/{trip}',[BookingController::class,'create']);
 Route::post('booking/create/{trip}',[BookingController::class,'store']);
 

@@ -12,13 +12,13 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
-    public function create(Trip $trip,Bus $bus,Route $route)
+    public function create(Trip $trip)
     {
-        $premiumSeats = Seat::where('bus_id', $bus->id)
+        $premiumSeats = Seat::where('bus_id', $trip->bus_id)
             ->where('seat_type_id', 2)
             ->get();
         $regularSeats = Seat::where([
-            ['bus_id', '=', $bus->id],
+            ['bus_id', '=', $trip->bus_id],
             ['seat_type_id', '=', 1]])->get();
         $letters = range('A', 'z');
 
@@ -26,13 +26,18 @@ class BookingController extends Controller
             'premiumSeats'=>$premiumSeats,
             'regularSeats'=>$regularSeats,
             'letters' => $letters,
-            'route'=>$route, 'bus'=>$bus]);
+            ]);
     }
 
     public function store(Trip $trip)
     {
+        $seats = Seat::where('bus_id', $trip->id)->get();
+        $checkedSeats =[];
+        foreach ($seats as $seat){
+            array_push($checkedSeats,\request($seat->id));
+        }
 
-        dd(\request('seatNo'));
+        dd($checkedSeats);
         $passenger = Passenger::where('phone', \request('phone'))->first();
         if($passenger===null){
             $passengerAttribute = \request()->validate([

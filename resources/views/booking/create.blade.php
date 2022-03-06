@@ -16,8 +16,8 @@
                                     @if($count>2)
                                         <span hidden>{{$count=0}}</span><span hidden>{{$i++}}</span>
                                     @endif
-                                    <input id="seat{{$letters[$i]}}{{$count}}" name="{{$seat->id}}"
-                                           type="checkbox" class="cbox" value="{{$letters[$i]}}{{$count}}" style="display: none; position: absolute"/>
+                                    <input id="seat{{$letters[$i]}}{{$count}}" value="{{$seat->id}}" name="{{$seat->id}}"
+                                           type="checkbox" class="cbox" style="display: none; position: absolute"/>
                                         <label for="seat{{$letters[$i]}}{{$count}}" class="premiumSeats">
                                             {{$letters[$i]}}{{$count}}
                                         </label>
@@ -29,8 +29,10 @@
                             @endfor
                         </div>
                     @endif
+                    <input type="checkbox" value="test" name="test">
 
                     <div class="regularBox">
+
                         <x-seats :letters="$letters" :seats="$regularSeats" className="regularSeats" :letterCount="$letterCount"/>
                     </div>
 
@@ -38,14 +40,14 @@
             </div>
             <div class="passenger-info">
                 <h1>Passenger Information</h1>
-                    <x-form.input name="Name"/>
-                    <x-form.input name="Phone"/>
+                    <x-form.input name="name"/>
+                    <x-form.input name="phone"/>
                     <x-form.input name="totalSeats" type="number"/>
                     <x-form.input name="totalAmount" type="number"/>
                     <x-form.input name="paidAmount" type="number"/>
                     <x-form.input name="due" type="number"/>
 
-                    <button class="btn">Book</button>
+                    <button type="submit" class="btn">Book</button>
 
             </div>
         </form>
