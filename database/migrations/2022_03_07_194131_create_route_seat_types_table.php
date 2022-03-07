@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RouteSeatTypes extends Migration
+class CreateRouteSeatTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class RouteSeatTypes extends Migration
     {
         Schema::create('route_seat_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('route_id')->constrained('routes');
-            $table->foreignId('seat_type_id')->constrained('seat_types');
+            $table->foreignId('route_id');
+            $table->foreignId('seat_type_id');
             $table->integer('price');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class RouteSeatTypes extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('route_seat_types');
     }
 }

@@ -20,6 +20,10 @@
                 @endforeach
             </select>
 
+            <x-form.input type="number" name="regularSeatPrice"/>
+            <x-form.input type="number" name="premiumSeatPrice"/>
+
+
             <button class="btn">Create</button>
 
         </form>
