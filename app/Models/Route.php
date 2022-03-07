@@ -24,7 +24,7 @@ class Route extends Model
 
     public function seatType()
     {
-        return $this->belongsTomany(SeatType::class);
+        return $this->belongsTomany(SeatType::class,'route_seatType','route_id','seat_type_id','price');
     }
 
     public function fromLocation()

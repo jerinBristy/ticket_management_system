@@ -16,7 +16,7 @@
                                     @if($count>2)
                                         <span hidden>{{$count=0}}</span><span hidden>{{$i++}}</span>
                                     @endif
-                                    <input id="seat{{$letters[$i]}}{{$count}}" value="{{$seat->id}}" name="{{$seat->id}}"
+                                    <input id="seat{{$letters[$i]}}{{$count}}" value="{{$seat->id}}" name="seats[]"
                                            type="checkbox" class="cbox" style="display: none; position: absolute"/>
                                         <label for="seat{{$letters[$i]}}{{$count}}" class="premiumSeats">
                                             {{$letters[$i]}}{{$count}}
@@ -50,6 +50,7 @@
                     <button type="submit" class="btn">Book</button>
 
             </div>
-        </form>
+        </
+        >
     </div>
 </x-layout>

@@ -7,7 +7,7 @@
         @if($count>3)
             <span hidden>{{$count=0}}</span><span hidden>{{$i++}}</span>
         @endif
-        <input id="seat{{$letters[$i]}}{{$count}}" name="{{$seat->id}}"
+        <input id="seat{{$letters[$i]}}{{$count}}" name="seats[]"
                type="checkbox" class="cbox" value="{{$seat->id}}" style="display: none; position: absolute"/>
         <label for="seat{{$letters[$i]}}{{$count}}" class="{{$className}}">
             {{$letters[$i]}}{{$count}}

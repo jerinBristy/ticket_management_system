@@ -31,27 +31,28 @@ class BookingController extends Controller
 
     public function store(Trip $trip)
     {
-        $seats = Seat::where('bus_id', $trip->id)->get();
-        $checkedSeats =[];
-        foreach ($seats as $seat){
-            array_push($checkedSeats,\request($seat->id));
-        }
-
-        dd($checkedSeats);
+        $seats = \request('seats');
         $passenger = Passenger::where('phone', \request('phone'))->first();
         if($passenger===null){
             $passengerAttribute = \request()->validate([
                 'name' => 'required',
                 'phone' => 'required'
             ]);
-
-           $passenger= Passenger::create($passengerAttribute)->get();
+            Passenger::create($passengerAttribute);
+           $passenger= Passenger::all()->last();
         }
-        PassengerSeat::create([
-            'passenger_id' => $passenger->id,
-            'trip_id' => $trip->id,
-        ]);
+        $count=1;
+        foreach ($seats as $seat){
+            $passenger->seat()->attach($count,[
+                'passenger_id' => $passenger->id,
+                'trip_id' => $trip->id,
+                'seat_id' => $seat,
+                'price' => $trip->route->price
+            ]);
+            $count++;
+        }
 
+        return redirect('/trip')->with('message','successfully booked');
 
     }
 }

@@ -18,8 +18,6 @@ class CreateRoutesTable extends Migration
             $table->timestamps();
             $table->foreignId('from_location_id')->constrained('locations');
             $table->foreignId('to_location_id')->constrained('locations');
-            $table->foreignId('seat_type_id')->nullable()->constrained();
-            $table->integer('price');
         });
     }
 

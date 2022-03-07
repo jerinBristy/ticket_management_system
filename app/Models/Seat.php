@@ -26,6 +26,6 @@ class Seat extends Model
 
     public function passengers()
     {
-        return $this->belongsToMany(Passenger::class);
+        return $this->belongsToMany(Passenger::class,'passenger_seats','seat_id','passenger_id', 'trip_id','price');
     }
 }
