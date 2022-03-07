@@ -15,11 +15,11 @@ class CreatePassengerSeatsTable extends Migration
     {
         Schema::create('passenger_seats', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->foreignId('passenger_id');
-            $table->foreignId('seat_id');
-            $table->integer('trip_id');
+            $table->foreignId('passenger_id')->constrained('passengers');
+            $table->foreignId('seat_id')->constrained('seats');
+            $table->foreignId('trip_id')->constrained('trips');
             $table->integer('price');
+            $table->timestamps();
         });
     }
 

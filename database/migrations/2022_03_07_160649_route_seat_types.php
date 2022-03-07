@@ -13,7 +13,13 @@ class RouteSeatTypes extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('route_seat_types', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('route_id')->constrained('routes');
+            $table->foreignId('seat_type_id')->constrained('seat_types');
+            $table->integer('price');
+            $table->timestamps();
+        });
     }
 
     /**
