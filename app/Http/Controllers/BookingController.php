@@ -33,7 +33,8 @@ class BookingController extends Controller
     {
         $seats = \request('seats');
         $passenger = Passenger::where('phone', \request('phone'))->first();
-        $route = Route::find($trip->route_id);
+        $route = Route::with('seatType')->find($trip->route_id);
+        $routeSeatTYpe = $route->seatType->first();
         $count=1;
 
         if($passenger===null){
@@ -50,7 +51,7 @@ class BookingController extends Controller
                 'passenger_id' => $passenger->id,
                 'trip_id' => $trip->id,
                 'seat_id' => $seat,
-                'price' => $route->seatType->price
+                'price' => $routeSeatTYpe->pivot->price
             ]);
             $count++;
         }
