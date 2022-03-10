@@ -39,16 +39,16 @@ class RouteController extends Controller
         $route = Route::create($attributes)->get()->last();
 
         $routeSeatType = Route_seat_type::get()->last();
-        $route->seatType()->attach(($routeSeatType->id)+1,[
+        $route->seatType()->attach(($routeSeatType->id ?? 0)+1,[
            'route_id' => $route->id,
             'seat_type_id' => 1,
-            'price' => $regularSeatPrice
+            'price' => $regularSeatPrice['regularSeatPrice']
         ]);
 
-        $route->seatType()->attach(($routeSeatType->id)+2,[
+        $route->seatType()->attach(($routeSeatType->id ?? 0)+2,[
             'route_id' => $route->id,
             'seat_type_id' => 2,
-            'price' => $premiumSeatPrice
+            'price' => $premiumSeatPrice['premiumSeatPrice']
         ]);
         return redirect('/route/index')->with('message', 'Successfully created a new route');
     }

@@ -33,6 +33,9 @@ class BookingController extends Controller
     {
         $seats = \request('seats');
         $passenger = Passenger::where('phone', \request('phone'))->first();
+        $route = Route::find($trip->route_id);
+        $count=1;
+
         if($passenger===null){
             $passengerAttribute = \request()->validate([
                 'name' => 'required',
@@ -41,13 +44,13 @@ class BookingController extends Controller
             Passenger::create($passengerAttribute);
            $passenger= Passenger::all()->last();
         }
-        $count=1;
+
         foreach ($seats as $seat){
             $passenger->seat()->attach($count,[
                 'passenger_id' => $passenger->id,
                 'trip_id' => $trip->id,
                 'seat_id' => $seat,
-                'price' => $trip->route->price
+                'price' => $route->seatType->price
             ]);
             $count++;
         }
