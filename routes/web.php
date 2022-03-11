@@ -65,4 +65,5 @@ Route::post('driver/create', [DriverController::class, 'store']);
 
 Route::get('booking/create/{trip}',[BookingController::class,'create']);
 Route::post('booking/create/{trip}',[BookingController::class,'store']);
+Route::get('booking/show',[BookingController::class,'show']);
 

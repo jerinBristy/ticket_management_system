@@ -67,7 +67,15 @@ class BookingController extends Controller
             $count++;
         }
 
-        return redirect('/trip')->with('message','successfully booked');
+        return view('/booking/show',[
+            'passenger' => $passenger,
 
+        ])->with('message','successfully booked');
+
+    }
+
+    public function show()
+    {
+        return view('booking.show');
     }
 }
