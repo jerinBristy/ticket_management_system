@@ -34,7 +34,7 @@ class BookingController extends Controller
         $seats = \request('seats');
         $passenger = Passenger::where('phone', \request('phone'))->first();
         $route = Route::with('seatType')->find($trip->route_id);
-        $routeSeatTYpe = $route->seatType->first();
+        $routeSeatTypes = $route->seatType->all();
         $count=1;
 
         if($passenger===null){
@@ -47,11 +47,18 @@ class BookingController extends Controller
         }
 
         foreach ($seats as $seat){
-            $passenger->seat()->attach($count,[
+            $price=0;
+           foreach ($routeSeatTypes as $routeSeatType){
+               dd($routeSeatType->pivot->seat_type_id . ' ff '. $seat );
+               if($routeSeatType->pivot->seat_type_id==(int)$seat){
+                   $price = $routeSeatType->pivot->price;
+               }
+           }
+           $passenger->seat()->attach($count,[
                 'passenger_id' => $passenger->id,
                 'trip_id' => $trip->id,
                 'seat_id' => $seat,
-                'price' => $routeSeatTYpe->pivot->price
+                'price' => $price
             ]);
             $count++;
         }

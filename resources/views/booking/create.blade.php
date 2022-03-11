@@ -4,6 +4,7 @@
             @csrf
             <div class="seat-info">
                 <h1>Choose Seat</h1>
+                <h3>Regular Seat Price: </h3>
                 <div class="seatBox">
                     <span hidden>{{$letterCount=-1}}</span>
                     @if(count($premiumSeats)!=0)
