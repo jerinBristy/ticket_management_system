@@ -31,7 +31,8 @@ class BookingController extends Controller
 
     public function store(Trip $trip)
     {
-        $seats = \request('seats');
+        $seatsArray = \request('seats');
+        $seats = Seat::whereIn('id',$seatsArray)->get();
         $passenger = Passenger::where('phone', \request('phone'))->first();
         $route = Route::with('seatType')->find($trip->route_id);
         $routeSeatTypes = $route->seatType->all();
@@ -48,16 +49,15 @@ class BookingController extends Controller
 
         foreach ($seats as $seat){
             $price=0;
-           foreach ($routeSeatTypes as $routeSeatType){
-               dd($routeSeatType->pivot->seat_type_id . ' ff '. $seat );
-               if($routeSeatType->pivot->seat_type_id==(int)$seat){
+            foreach ($routeSeatTypes as $routeSeatType){
+               if($routeSeatType->pivot->seat_type_id==$seat->seat_type_id){
                    $price = $routeSeatType->pivot->price;
                }
            }
            $passenger->seat()->attach($count,[
                 'passenger_id' => $passenger->id,
                 'trip_id' => $trip->id,
-                'seat_id' => $seat,
+                'seat_id' => $seat->id,
                 'price' => $price
             ]);
             $count++;
