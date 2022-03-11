@@ -22,10 +22,14 @@ class BookingController extends Controller
             ['seat_type_id', '=', 1]])->get();
         $letters = range('A', 'z');
 
+        $route = Route::with('seatType')->find($trip->route_id);
+        $routeSeatTypes = $route->seatType->all();
+
         return view('booking.create',['trip'=>$trip,
             'premiumSeats'=>$premiumSeats,
             'regularSeats'=>$regularSeats,
             'letters' => $letters,
+            'routeSeatTypes' => $routeSeatTypes,
             ]);
     }
 

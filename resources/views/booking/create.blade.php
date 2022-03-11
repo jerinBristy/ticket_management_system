@@ -4,7 +4,8 @@
             @csrf
             <div class="seat-info">
                 <h1>Choose Seat</h1>
-                <h3>Regular Seat Price: </h3>
+                <h3>Regular Seat Price: {{$routeSeatTypes[0]->pivot->price}}</h3>
+                <h3>Premium Seat Price: {{$routeSeatTypes[1]->pivot->price}}</h3>
                 <div class="seatBox">
                     <span hidden>{{$letterCount=-1}}</span>
                     @if(count($premiumSeats)!=0)
@@ -30,8 +31,6 @@
                             @endfor
                         </div>
                     @endif
-                    <input type="checkbox" value="test" name="test">
-
                     <div class="regularBox">
 
                         <x-seats :letters="$letters" :seats="$regularSeats" className="regularSeats" :letterCount="$letterCount"/>
