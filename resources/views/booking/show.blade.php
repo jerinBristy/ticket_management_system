@@ -11,6 +11,6 @@
         <h1>Ticket Booking Information</h1>
         <h4>Name: {{$passenger->name}}</h4>
         <h4>Phone: {{$passenger->phone}}</h4>
-        <h4>Total Amount: {{}}</h4>
+        <h4>Total Amount: {{$totalPrice}}</h4>
     </div>
 </body>

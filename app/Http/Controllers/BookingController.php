@@ -50,9 +50,10 @@ class BookingController extends Controller
             Passenger::create($passengerAttribute);
            $passenger= Passenger::all()->last();
         }
-
+        $totalPrice=0;
         foreach ($seats as $seat){
             $price=0;
+
             foreach ($routeSeatTypes as $routeSeatType){
                if($routeSeatType->pivot->seat_type_id==$seat->seat_type_id){
                    $price = $routeSeatType->pivot->price;
@@ -64,12 +65,13 @@ class BookingController extends Controller
                 'seat_id' => $seat->id,
                 'price' => $price
             ]);
+            $totalPrice += $price;
             $count++;
         }
 
         return view('/booking/show',[
             'passenger' => $passenger,
-
+            'totalPrice' => $totalPrice
         ])->with('message','successfully booked');
 
     }
