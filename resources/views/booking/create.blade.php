@@ -20,7 +20,7 @@
                                     @endif
                                     <input id="seat{{$letters[$i]}}{{$count}}" value="{{$seat->id}}" name="seats[]"
                                            type="checkbox" class="cbox" style="display: none; position: absolute"/>
-                                        <label for="seat{{$letters[$i]}}{{$count}}" class="premiumSeats">
+                                        <label for="seat{{$letters[$i]}}{{$count}}" class="premiumSeats seatName">
                                             {{$letters[$i]}}{{$count}}
                                         </label>
                                     <span hidden>{{$count++}}</span>
@@ -33,7 +33,7 @@
                     @endif
                     <div class="regularBox">
 
-                        <x-seats :letters="$letters" :seats="$regularSeats" className="regularSeats" :letterCount="$letterCount"/>
+                        <x-seats :letters="$letters" :seats="$regularSeats" className="regularSeats seatName" :letterCount="$letterCount"/>
                     </div>
 
                 </div>

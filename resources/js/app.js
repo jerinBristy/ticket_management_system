@@ -37,7 +37,8 @@ function getMatchedRoutes(){
         });
 }
 
-//for seat layout radio button
+//getting seat name
+
 
 
 

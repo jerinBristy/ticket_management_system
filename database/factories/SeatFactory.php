@@ -19,6 +19,7 @@ class SeatFactory extends Factory
         return [
             'bus_id' => random_int(1,4),
             'seat_type_id' => '1',
+            'name' => ''
         ];
     }
 }
