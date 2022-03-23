@@ -71,7 +71,8 @@ class BookingController extends Controller
 
         return view('/booking/show',[
             'passenger' => $passenger,
-            'totalPrice' => $totalPrice
+            'totalPrice' => $totalPrice,
+            'seats' => $seats
         ])->with('message','successfully booked');
 
     }

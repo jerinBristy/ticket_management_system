@@ -12,5 +12,11 @@
         <h4>Name: {{$passenger->name}}</h4>
         <h4>Phone: {{$passenger->phone}}</h4>
         <h4>Total Amount: {{$totalPrice}}</h4>
+        <h4>
+            SeatNo:
+            @foreach($seats as $seat)
+                {{$seat->name}}
+            @endforeach
+        </h4>
     </div>
 </body>
