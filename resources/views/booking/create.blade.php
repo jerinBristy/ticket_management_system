@@ -42,15 +42,9 @@
                 <h1>Passenger Information</h1>
                     <x-form.input name="name"/>
                     <x-form.input name="phone"/>
-                    <x-form.input name="totalSeats" type="number"/>
-                    <x-form.input name="totalAmount" type="number"/>
-                    <x-form.input name="paidAmount" type="number"/>
-                    <x-form.input name="due" type="number"/>
-
                     <button type="submit" class="btn">Book</button>
 
             </div>
-        </
-        >
+        </form>
     </div>
 </x-layout>

@@ -9,6 +9,7 @@ use App\Models\Route;
 use App\Models\Trip;
 use App\Models\Seat;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BookingController extends Controller
 {
@@ -81,4 +82,18 @@ class BookingController extends Controller
     {
         return view('booking.show');
     }
+
+    public function exportPdf() {
+        $pdf = PDF::loadView('booking.pdf',[
+            'passenger' => $passenger,
+            'totalPrice' => $totalPrice,
+            'seats' => $seats
+        ]); // <--- load your view into theDOM wrapper;
+        $path = public_path('pdf_docs/'); // <--- folder to store the pdf documents into the server;
+        $fileName =  time().'.'. 'pdf' ; // <--giving the random filename,
+        $pdf->save($path . '/' . $fileName);
+        $generated_pdf_link = url('documents/'.$fileName);
+        return response()->json($generated_pdf_link);
+    }
+
 }

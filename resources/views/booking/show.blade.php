@@ -18,5 +18,6 @@
                 {{$seat->name}}
             @endforeach
         </h4>
+        <a href="/export-pdf">Download PDF</a>
     </div>
 </body>
