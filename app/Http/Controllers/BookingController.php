@@ -10,6 +10,7 @@ use App\Models\Trip;
 use App\Models\Seat;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 class BookingController extends Controller
 {
@@ -73,7 +74,7 @@ class BookingController extends Controller
         return view('/booking/show',[
             'passenger' => $passenger,
             'totalPrice' => $totalPrice,
-            'seats' => $seats
+            'seats' => $seats,
         ])->with('message','successfully booked');
 
     }
@@ -83,17 +84,19 @@ class BookingController extends Controller
         return view('booking.show');
     }
 
-    public function exportPdf() {
-        $pdf = PDF::loadView('booking.pdf',[
-            'passenger' => $passenger,
-            'totalPrice' => $totalPrice,
+    public function exportPdf(Request $request)
+    {
+        $seats = json_decode($request->seats);
+        $data = [
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'totalPrice' => $request->totalPrice,
             'seats' => $seats
-        ]); // <--- load your view into theDOM wrapper;
-        $path = public_path('pdf_docs/'); // <--- folder to store the pdf documents into the server;
-        $fileName =  time().'.'. 'pdf' ; // <--giving the random filename,
-        $pdf->save($path . '/' . $fileName);
-        $generated_pdf_link = url('documents/'.$fileName);
-        return response()->json($generated_pdf_link);
+            ];
+        $pdf = PDF::loadView('pdf',$data); // <--- load your view into theDOM wrapper;
+        Storage::put('C:\Users\shakil\Downloads/invoice1.pdf', $pdf->output());
+
+        return $pdf->download('invoice.pdf');
     }
 
 }

@@ -66,5 +66,5 @@ Route::post('driver/create', [DriverController::class, 'store']);
 Route::get('booking/create/{trip}',[BookingController::class,'create']);
 Route::post('booking/create/{trip}',[BookingController::class,'store']);
 Route::get('booking/show',[BookingController::class,'show']);
-Route::get('/export-pdf', [App\Http\Controllers\BookingController::class, 'exportPdf']);
+Route::get('/export-pdf', [BookingController::class, 'exportPdf']);
 

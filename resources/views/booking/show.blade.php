@@ -18,6 +18,6 @@
                 {{$seat->name}}
             @endforeach
         </h4>
-        <a href="/export-pdf">Download PDF</a>
+        <a href="/export-pdf?name={{$passenger->name}}&phone={{$passenger->phone}}&price={{$totalPrice}}&seats={{ json_encode($seats) }}">Download PDF</a>
     </div>
 </body>
