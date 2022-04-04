@@ -10,5 +10,6 @@ class PassengerSeat extends Pivot
 {
     use HasFactory;
 
+    protected $table = 'passenger_seats';
     protected $guarded = [];
 }

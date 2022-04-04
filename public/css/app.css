@@ -317,5 +317,8 @@
         margin: 10px;
         border: transparent 2px solid;
     }
+    .booked{
+        background-color: #888484;
+    }
 }
 

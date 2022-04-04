@@ -9,11 +9,11 @@
                 <div class="seatBox">
                     @if(count($premiumSeats)!=0)
                         <div class="premiumBox">
-                            <x-seats :seats="$premiumSeats" className="premiumSeats seatName" row="2"/>
+                            <x-seats :seats="$premiumSeats" :bookedSeats="$bookedSeats" className="premiumSeats seatName" row="2"/>
                         </div>
                     @endif
                     <div class="regularBox">
-                        <x-seats :seats="$regularSeats" className="regularSeats seatName" row="3"/>
+                        <x-seats :seats="$regularSeats" :bookedSeats="$bookedSeats" className="regularSeats seatName" row="3"/>
                     </div>
                 </div>
             </div>

@@ -22,16 +22,18 @@ class BookingController extends Controller
         $regularSeats = Seat::where([
             ['bus_id', '=', $trip->bus_id],
             ['seat_type_id', '=', 1]])->get();
-        $letters = range('A', 'z');
+
+        $allSeats = Seat::select('id')->where('bus_id', '=', $trip->bus_id)->pluck('id');
 
         $route = Route::with('seatType')->find($trip->route_id);
         $routeSeatTypes = $route->seatType->all();
 
+        $bookedSeats = PassengerSeat::whereIn('seat_id', $allSeats)->pluck('seat_id')->toArray();
         return view('booking.create',['trip'=>$trip,
             'premiumSeats'=>$premiumSeats,
             'regularSeats'=>$regularSeats,
-            'letters' => $letters,
             'routeSeatTypes' => $routeSeatTypes,
+            'bookedSeats' => $bookedSeats
             ]);
     }
 
@@ -64,6 +66,7 @@ class BookingController extends Controller
            $passenger->seat()->attach($count,[
                 'passenger_id' => $passenger->id,
                 'trip_id' => $trip->id,
+                'bus_id' => $trip->bus_id,
                 'seat_id' => $seat->id,
                 'price' => $price
             ]);
@@ -90,7 +93,7 @@ class BookingController extends Controller
         $data = [
             'name' => $request->name,
             'phone' => $request->phone,
-            'totalPrice' => $request->totalPrice,
+            'totalPrice' => $request->price,
             'seats' => $seats
             ];
         $pdf = PDF::loadView('pdf',$data); // <--- load your view into theDOM wrapper;
